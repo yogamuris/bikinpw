@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    <title>URL Shortener</title>
+</head>
+<body>
+    <div id="particles-js"></div>
+    <div id="isi">
+        <div class="container">
+            <h1 class="ini-bang">Bikin.pw</h1>
+            <p class="ma-desc">URL Shortener</p>
+            {% from "_formhelper.html" import render_field %}
+        
+            <form action="" method="post">
+                <div class="form-group long-url">
+                    {{ render_field(form.long_url, class_="form-control") }}
+                </div>
+                
+                <div class="form-group custom-url">
+                    {{ render_field(form.short_url, class_="form-control") }}
+                </div>
+                <p>
+                    <input type="submit" class="btn btn-primary" value="Shorten Link">
+                </p>
+            </form>
+            <p class="msg">{{ message }}</p>
+        </div>
+    </div>
+    
+    <script src="//cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="../static/particle.js"></script>
+</body>
+</html>

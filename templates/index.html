@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/style.css">
+
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <title>Bikin.pw - URL Shortener </title>
+    <link rel='shortcut icon' href='../static/icon.png' type='image/x-icon' />
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+</head>
+
+<body>
+    <div id="bpw">
+        <div class="container">
+            <div class="bpw-desc">
+                <h1>Bikin.pw
+                    <span class="logo">
+                        <img src="../static/Icon – 2.png" alt="">
+                    </span>
+                </h1>
+                <p>Shorten and personalize your URL</p>
+
+            </div>
+            <div class="bpw-form">
+                {% from "_formhelper.html" import render_field %}
+
+                <form action="" method="post" id="theform">
+                    <div class="form-group long-url">
+                        {{ render_field(form.long_url, class_="form-control") }}
+                    </div>
+
+                    <div class="short-url">
+                        <div class="form-custom">
+                            <div id="show-it" class="left show-custom">
+                                <a id="custombut" href="javascript:;">Custom your URL</a>
+                            </div>
+                            <div id="customize-url" class="form-group custom-url right">
+                                {{ render_field(form.short_url, class_="form-control") }}
+                            </div>
+                        </div>
+                    </div>
+                    <p class="submitbut">
+                        <input type="submit" class="btn btn-sbmt" value="Shorten!">
+                    </p>
+                </form>
+                <script>
+                    $('#theform').on('click', '#custombut', function () {
+                        $('#customize-url').show('fast');
+                        $('#show-it').html('<a id="randombut" href="javascript:;">Random URL</a>');
+                    });
+                    $('#theform').on('click', '#randombut', function () {
+                        $('#customize-url').hide('fast');
+                        $('#show-it').html('<a id="custombut" href="javascript:;">Custom your URL</a>');
+                    });
+                </script>
+                <p class="msg">{{ message }}</p>
+            </div>
+
+
+        </div>
+    </div>
+
+    <link rel="stylesheet" href="../static/jquery.min.js">
+</body>
+
+</html>
