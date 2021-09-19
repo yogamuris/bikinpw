@@ -32,6 +32,7 @@
                 {% from "_formhelper.html" import render_field %}
 
                 <form action="" method="post" id="theform">
+                    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
                     <div class="form-group long-url">
                         {{ render_field(form.long_url, class_="form-control") }}
                     </div>
